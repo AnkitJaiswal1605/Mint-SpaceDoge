@@ -117,11 +117,27 @@ button {
     align-items: center;
 }
 
+.mob-wallet {
+    width: 15rem;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
 h1 {
     color: white;
     font-size: 3.5rem;
     margin-bottom: 2rem;
     margin-top: 2rem;
+}
+
+@media (max-width: 650px) {
+    
+}
+
+@media (min-width: 650px) {
+    .mob-wallet {
+        display: none;
+    }
 }
 
 .green-text {
