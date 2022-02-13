@@ -1,0 +1,159 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: white;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    /* background-color: #272727; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-position: center;
+}
+
+.background-img {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+}
+
+.logo {
+    width: 13rem;
+    position: absolute;
+    top: 2rem;
+    left: 4rem;
+}
+
+.legal {
+    font-family: 'Inter', sans-serif;
+    position: absolute;
+    left: 4rem;
+    bottom: 3rem;
+    text-decoration: underline;
+}
+
+.user-details {
+    font-family: 'Inter', sans-serif !important;
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+}
+
+.user-details p {
+    margin-bottom: 0.5rem;
+}
+
+/* #wallet-address, #nft-balance {
+    
+} */
+
+.inner-container {
+    font-family: 'Inria Sans', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50vw;
+    height: 65vh;
+    min-width: 30rem;
+    background-color: rgba(21, 21, 21, 0.76);
+    border-radius: 20px;
+}
+
+.functionality {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    background-color: transparent;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    width: 15rem;
+    padding: 0.5rem;
+    border-style: solid;
+    border-width: 3.5px;
+    border-color: white;
+    margin-bottom: 1rem;
+    cursor: pointer;
+}
+
+.mint-qty {
+    width: 15rem;
+    height: 3rem;
+    margin-bottom: 1rem;
+    background-color: transparent;
+    border-style: solid;
+    border-color: white;
+    border-width: 4px;
+    color: white;
+    padding-left: 1rem;
+    font-size: 1rem;
+}
+
+.mint-qty::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+.mint-qty:focus {
+    outline: none;
+}
+
+.mint-btn {
+    background-color: white;
+    color: #20746F;
+    margin-bottom: 2rem;
+}
+
+.stake-btn {
+    width: 8rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+}
+
+h1 {
+    color: white;
+    font-size: 3.5rem;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+}
+
+.green-text {
+    color: #4dfed4;
+}
+
+#signed-in {
+    display: none;
+}
+
+#signed-in-h2 {
+    display: none;
+}
+
+h2 {
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 2rem;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.price {
+    font-family: 'Inria Sans', sans-serif;
+}
+
+
+.unstaked-doges {
+    width: 5rem;
+    margin-right: 1.5rem;
+}
+
+.staked-doges {
+    margin-bottom: 2rem;
+}
+
