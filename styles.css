@@ -119,10 +119,8 @@ button {
     align-items: center;
 }
 
-.mob-wallet {
-    width: 15rem;
-    justify-content: center;
-    margin-bottom: 2rem;
+#mob-metamask {
+    display: inline-block;
 }
 
 h1 {
@@ -135,7 +133,7 @@ h1 {
 }
 
 @media (min-width: 650px) {
-    .mob-wallet {
+    #mob-metamask {
         display: none;
     }
 }
@@ -208,7 +206,7 @@ h2 {
 }
 
 .sign-section {
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;

@@ -30,7 +30,6 @@
 				</div>
                 
                 <h2 id="signed-out-h2">CONNECT TO THE ETHEREUM WALLET <br />(ACCEPTED WALLET: METAMASK) </h2>
-				<a href="https://metamask.app.link/dapp/mint-spacedoge.netlify.app/"><button class="mint-btn stake-btn mob-wallet">CONNECT WALLET</button></a>
                 <h2 id="signed-in-h2">ADDRESS: &nbsp; <span id="wallet-address"></span> 
 					<!-- <br />NFT BALANCE: &nbsp; <span id="nft-balance"></span> -->
 				</h2>
@@ -40,6 +39,7 @@
 					<button id="sign-up" class="mint-btn" onClick="signMessage()">SIGN UP</button>
 					<br><span class="small-text">(GAS FREE)</span>
 				</div>
+				<a href="https://metamask.app.link/dapp/mint-spacedoge.netlify.app/"><button id="mob-metamask" class="mint-btn">CONNECT WALLET</button></a>
 				
 				<div id="thank-you"></div>
                 <!-- <h2 class="price"><span class="green-text">PRICE:</span>&nbsp;0.2 ETH (+GAS FEES)</h2> -->
@@ -644,6 +644,8 @@
 					// document.getElementById("connect-wallet").classList.add("connected");
                     document.querySelector('.signed-out-section').style.display = 'none';
                     document.getElementById('signed-out-h2').style.display = 'none';
+					document.getElementById('mob-metamask').style.display = 'none';
+					document.querySelector('.sign-section').style.display = 'flex';
                     document.querySelector('.signed-in-section').style.display = 'flex';
 					document.getElementById('signed-in').style.display = 'flex';
                     document.getElementById('signed-in-h2').style.display = 'inline-block';
