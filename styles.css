@@ -3,6 +3,8 @@
     padding: 0;
     box-sizing: border-box;
     color: white;
+    overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 .container {
@@ -17,8 +19,8 @@
 
 .background-img {
     position: absolute;
-    width: 100vw;
-    height: 100vh;
+    min-width: 100vw;
+    min-height: 100vh;
     z-index: -1;
 }
 
@@ -120,7 +122,7 @@ button {
 .mob-wallet {
     width: 15rem;
     justify-content: center;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
 }
 
 h1 {
@@ -171,5 +173,40 @@ h2 {
 
 .staked-doges {
     margin-bottom: 2rem;
+}
+
+.sign-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#sign-up {
+    margin-top: 2rem;
+    margin-bottom: 0;
+}
+
+.small-text {
+    display: inline-block;
+    justify-content: center;
+    color: white;
+    font-size: 0.8rem;
+    height: 1rem !important;
+    margin-top: 0;
+    font-family: 'Inter', sans-serif;
+    position: relative;
+    bottom: 0.7rem;
+}
+
+#thank-you {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+    /* line-height: 1.5rem; */
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
 }
 
