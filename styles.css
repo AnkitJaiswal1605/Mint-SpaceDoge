@@ -61,7 +61,7 @@
     align-items: center;
     width: 50vw;
     height: 65vh;
-    min-width: 25rem;
+    min-width: 24rem;
     background-color: rgba(21, 21, 21, 0.76);
     border-radius: 20px;
 }
@@ -145,6 +145,10 @@ h1 {
 }
 
 .signed-in-section {
+    display: none;
+}
+
+.signed-out-section {
     display: flex;
 }
 
@@ -152,10 +156,23 @@ h1 {
     .signed-in-section {
         flex-direction: column;
     }
+
+    .signed-out-section {
+        flex-direction: column;
+    }
+}
+
+#signed-out {
+    display: flex;
+    justify-content: center ;
+    align-items: center;
+}
+
+#signed-out-h2 {
+    margin-top: 2rem;
 }
 
 #signed-in {
-    display: none;
     justify-content: center ;
     align-items: center;
 }

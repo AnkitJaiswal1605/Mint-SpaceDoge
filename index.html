@@ -19,7 +19,11 @@
 
         <div class="inner-container">
             <div class="functionality">
-                <h1 id="signed-out">PLEASE <span class="green-text">CONNECT</span></h1>
+				<div class="signed-out-section">
+					<h1 id="signed-out">PLEASE</h1> 
+					<h1><span class="green-text" id="signed-out-2">&nbsp;CONNECT</span></h1>
+				</div>
+                
 				<div class="signed-in-section">
 					<h1 id="signed-in">WALLET</h1> 
 					<h1><span class="green-text" id="signed-in-2">&nbsp;CONNECTED</span></h1>
@@ -638,9 +642,10 @@
                     document.getElementById("wallet-address").textContent = account.substring(0,5) + "..." + account.substring(37,42);
 					// document.getElementById("connect-wallet").textContent = "DISCONNECT WALLET";
 					// document.getElementById("connect-wallet").classList.add("connected");
-                    document.getElementById('signed-out').style.display = 'none';
+                    document.querySelector('.signed-out-section').style.display = 'none';
                     document.getElementById('signed-out-h2').style.display = 'none';
-                    document.getElementById('signed-in').style.display = 'flex';
+                    document.querySelector('.signed-in-section').style.display = 'flex';
+					document.getElementById('signed-in').style.display = 'flex';
                     document.getElementById('signed-in-h2').style.display = 'inline-block';
 					contract = new web3.eth.Contract(ABI, ADDRESS);
 
