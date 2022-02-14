@@ -129,7 +129,9 @@ h1 {
 }
 
 @media (max-width: 650px) {
-    
+    .logo, .legal {
+        left: 2rem;
+    }
 }
 
 @media (min-width: 650px) {
