@@ -61,7 +61,7 @@
     align-items: center;
     width: 50vw;
     height: 65vh;
-    min-width: 30rem;
+    min-width: 25rem;
     background-color: rgba(21, 21, 21, 0.76);
     border-radius: 20px;
 }
@@ -128,8 +128,6 @@ button {
 h1 {
     color: white;
     font-size: 3.5rem;
-    margin-bottom: 2rem;
-    margin-top: 2rem;
 }
 
 @media (max-width: 650px) {
@@ -146,11 +144,28 @@ h1 {
     color: #4dfed4;
 }
 
+.signed-in-section {
+    display: flex;
+}
+
+@media (max-width: 1200px) {
+    .signed-in-section {
+        flex-direction: column;
+    }
+}
+
 #signed-in {
     display: none;
+    justify-content: center ;
+    align-items: center;
 }
 
 #signed-in-h2 {
+    display: none;
+    margin-top: 2rem;
+}
+
+.signed-in-break {
     display: none;
 }
 
