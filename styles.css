@@ -164,7 +164,7 @@ button {
 .mint-btn {
     background-color: white;
     color: #20746F;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
 }
 
 .stake-btn {
@@ -189,7 +189,7 @@ h1 {
         left: 1.5rem;
     }
     .inner-container {
-        height: 80vh;
+        height: 70vh;
     }
 }
 
