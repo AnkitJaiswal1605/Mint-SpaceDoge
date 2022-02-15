@@ -41,6 +41,12 @@
 					</div>
 					<div class="green-text max-qty">10 MAX</div>
 				</div> 
+				<div class="total-price">
+					<div class="enter-qty">
+						<span class="green-text max-qty">TOTAL</span>
+					</div>
+					<div class="green-text max-qty"><span class="final-price">0</span>ETH</div>
+				</div> 
                 <button id="mint" class="mint-btn">MINT NFT</button>
 				<a href="https://metamask.app.link/dapp/mint-spacedoge.netlify.app/"><button id="mob-metamask" class="mint-btn">OPEN WITH METAMASK</button></a>
 				<!-- <div class="sign-section">
@@ -639,7 +645,7 @@
 		"type": "function"
 	}
 ];
-            const ADDRESS = "0x6A3b6885e84c9cF9354ee1F5e499a2923d7a54b6";
+            const ADDRESS = "0x28695B08113EA3412D8aF8b1dEb0a73aec0D0CBe";
 
             (async () => {
                 if(window.ethereum) {
@@ -656,6 +662,7 @@
 					document.getElementById('mint').style.display = 'inline-block';
 					document.querySelector('.price').style.display = 'inline-block';
 					document.querySelector('.mint-qty').style.display = 'flex';
+					document.querySelector('.total-price').style.display = 'flex';
 					// document.querySelector('.sign-section').style.display = 'flex';
                     document.querySelector('.signed-in-section').style.display = 'flex';
 					document.getElementById('signed-in').style.display = 'flex';
@@ -666,7 +673,7 @@
 
                     document.getElementById('mint').onclick = () => {
 						// var finalQty = document.querySelector('.final-qty').value;
-						var mintPrice = (0.2 * 10 ** 18) * counter;
+						var mintPrice = (0.1 * 10 ** 18) * counter;
 						console.log(mintPrice);
                         contract.methods.mint(counter).send({ from: account, value: mintPrice });
                     }
@@ -680,12 +687,14 @@
 				if(counter<10)
 				counter++;
 				document.querySelector(".final-qty").textContent = counter;
+				document.querySelector(".final-price").textContent = counter * 1/10;
 			}
 
 			function subtract() {
 				if(counter>0)
 				counter--;
 				document.querySelector(".final-qty").textContent = counter;
+				document.querySelector(".final-price").textContent = counter * 1/10;
 			}
 
 			// async function signMessage() {

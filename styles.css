@@ -106,6 +106,26 @@ button {
     align-items: center;
 }
 
+.total-price {
+    width: 15rem;
+    height: 3rem;
+    margin-bottom: 1.5rem;
+    margin-top: 0.5rem;
+    background-color: transparent;
+    border-style: solid;
+    border-right: none;
+    border-left: none;
+    border-color: white;
+    border-width: 3px;
+    caret-color: transparent;
+    color: white;
+    padding-left: 1rem;
+    font-size: 1rem;
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .enter-qty {
     display: flex;
     font-size: 1.5rem;
@@ -144,7 +164,7 @@ button {
 .mint-btn {
     background-color: white;
     color: #20746F;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 .stake-btn {
