@@ -15,6 +15,8 @@
     justify-content: center;
     align-items: center;
     background-position: center;
+    overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 .background-img {
@@ -39,7 +41,7 @@
     text-decoration: underline;
 }
 
-.user-details {
+/* .user-details {
     font-family: 'Inter', sans-serif !important;
     position: absolute;
     top: 2rem;
@@ -48,7 +50,7 @@
 
 .user-details p {
     margin-bottom: 0.5rem;
-}
+} */
 
 /* #wallet-address, #nft-balance {
     
