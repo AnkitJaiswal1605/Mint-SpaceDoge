@@ -188,6 +188,9 @@ h1 {
     .logo, .legal {
         left: 1.5rem;
     }
+    .inner-container {
+        height: 80vh;
+    }
 }
 
 @media (min-width: 650px) {
