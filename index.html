@@ -42,7 +42,7 @@
 				<a href="https://metamask.app.link/dapp/mint-spacedoge.netlify.app/"><button id="mob-metamask" class="mint-btn">CONNECT WALLET</button></a>
 				
 				<div id="thank-you"></div>
-                <!-- <h2 class="price"><span class="green-text">PRICE:</span>&nbsp;0.2 ETH (+GAS FEES)</h2> -->
+                <!-- <h2 class="price"><span class="green-text">PRICE:</span>&nbsp;0.1 ETH (+GAS FEES)</h2> -->
 				<!-- <a href="stake.html"> <button class="mint-btn stake-btn">STAKE NFT</button> </a> -->
             </div>
         </div>
@@ -640,8 +640,7 @@
                     var accounts = await web3.eth.getAccounts();
                     account = accounts[0];
                     document.getElementById("wallet-address").textContent = account.substring(0,5) + "..." + account.substring(37,42);
-					// document.getElementById("connect-wallet").textContent = "DISCONNECT WALLET";
-					// document.getElementById("connect-wallet").classList.add("connected");
+					
                     document.querySelector('.signed-out-section').style.display = 'none';
                     document.getElementById('signed-out-h2').style.display = 'none';
 					document.getElementById('mob-metamask').style.display = 'none';
@@ -649,34 +648,16 @@
                     document.querySelector('.signed-in-section').style.display = 'flex';
 					document.getElementById('signed-in').style.display = 'flex';
                     document.getElementById('signed-in-h2').style.display = 'inline-block';
-					contract = new web3.eth.Contract(ABI, ADDRESS);
+					// contract = new web3.eth.Contract(ABI, ADDRESS);
 
-                    document.getElementById('nft-balance').textContent = await contract.methods.balanceOf(account).call();
+                    // document.getElementById('nft-balance').textContent = await contract.methods.balanceOf(account).call();
 
-					// var dogeId = await contract.methods.tokenOfOwnerByIndex(account, 3).call();
-                    // var dogeUri = await contract.methods.tokenURI(dogeId).call();
-                    // var response = await axios.get(dogeUri);
-                    // var dogeImage = response.data.image;
-					// dogeImage = dogeImage.replace("ipfs://", "https://gateway.pinata.cloud/ipfs/")
-					// document.getElementById("doge-img").src = dogeImage;
-
-                    document.getElementById('mint').onclick = () => {
-						var mintQty = document.querySelector('.mint-qty').value;
-						var mintPrice = (0.2 * 10 ** 18) * mintQty;
-						console.log(mintPrice);
-                        contract.methods.mint(mintQty).send({ from: account, value: mintPrice });
-                    }
-
-					document.querySelector('.connected').onclick = (() => {
-                        window.location.reload();
-						// document.getElementById("wallet-address").textContent = "";
-						// document.getElementById('nft-balance').textContent = "";
-						// document.getElementById("connect-wallet").textContent = "Connect Wallet";
-						// document.getElementById("connect-wallet").classList.remove("connected");
-						// document.getElementById("connect-wallet").addEventListener(click);
-
-                        
-					});
+                    // document.getElementById('mint').onclick = () => {
+					// 	var mintQty = document.querySelector('.mint-qty').value;
+					// 	var mintPrice = (0.2 * 10 ** 18) * mintQty;
+					// 	console.log(mintPrice);
+                    //     contract.methods.mint(mintQty).send({ from: account, value: mintPrice });
+                    // }
                 }
 				
             })();
