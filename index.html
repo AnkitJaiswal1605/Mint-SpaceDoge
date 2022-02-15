@@ -53,6 +53,7 @@
             var account = null;
             var contract = null;
 			var signature = null;
+			var counter = 0;
 			var message = "Sign-up for Space Doge mint."
             const ABI = [
 	{
@@ -668,6 +669,7 @@
 				document.querySelector('.sign-section').style.display = "none";
 				document.getElementById('thank-you').style.display = "flex";
 				document.getElementById('thank-you').innerHTML = "<p>Thank you for signing up!</p><br><p>See you tomorrow!</p>";
+				counter++;
 			}
 
         </script>
