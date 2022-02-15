@@ -124,6 +124,7 @@ button {
 
 #mob-metamask {
     display: inline-block;
+    width: 16rem !important;
 }
 
 h1 {
