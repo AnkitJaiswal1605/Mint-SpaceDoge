@@ -31,18 +31,26 @@
                 
                 <h2 id="signed-out-h2">CONNECT TO THE ETHEREUM WALLET <br />(ACCEPTED WALLET: METAMASK) </h2>
                 <h2 id="signed-in-h2">ADDRESS: &nbsp; <span id="wallet-address"></span> 
-					<!-- <br />NFT BALANCE: &nbsp; <span id="nft-balance"></span> -->
+					<br />NFT BALANCE: &nbsp; <span id="nft-balance"></span>
 				</h2>
-				<!-- <input type="text" class="mint-qty" placeholder="Enter mint quantity..." /> -->
-                <!-- <button id="mint" class="mint-btn">MINT NFT</button> -->
-				<div class="sign-section">
+				<div class="mint-qty">
+					<div class="enter-qty">
+						<span class="add" onClick="subtract()">-</span>
+						<span class="final-qty"></span>
+						<span class="subtract" onClick="add()">+</span>
+					</div>
+					<div class="green-text max-qty">10 MAX</div>
+				</div> 
+                <button id="mint" class="mint-btn">MINT NFT</button>
+				<a href="https://metamask.app.link/dapp/mint-spacedoge.netlify.app/"><button id="mob-metamask" class="mint-btn">OPEN WITH METAMASK</button></a>
+				<!-- <div class="sign-section">
 					<button id="sign-up" class="mint-btn" onClick="signMessage()">SIGN UP</button>
 					<br><span class="small-text">(GAS FREE)</span>
 				</div>
 				<a href="https://metamask.app.link/dapp/mint-spacedoge.netlify.app/"><button id="mob-metamask" class="mint-btn">OPEN WITH METAMASK</button></a>
 				
-				<div id="thank-you"></div>
-                <!-- <h2 class="price"><span class="green-text">PRICE:</span>&nbsp;0.1 ETH (+GAS FEES)</h2> -->
+				<div id="thank-you"></div> -->
+                <h2 class="price"><span class="green-text">PRICE:</span>&nbsp;0.1 ETH (+GAS FEES)</h2>
 				<!-- <a href="stake.html"> <button class="mint-btn stake-btn">STAKE NFT</button> </a> -->
             </div>
         </div>
@@ -645,33 +653,49 @@
                     document.querySelector('.signed-out-section').style.display = 'none';
                     document.getElementById('signed-out-h2').style.display = 'none';
 					document.getElementById('mob-metamask').style.display = 'none';
-					document.querySelector('.sign-section').style.display = 'flex';
+					document.getElementById('mint').style.display = 'inline-block';
+					document.querySelector('.price').style.display = 'inline-block';
+					document.querySelector('.mint-qty').style.display = 'flex';
+					// document.querySelector('.sign-section').style.display = 'flex';
                     document.querySelector('.signed-in-section').style.display = 'flex';
 					document.getElementById('signed-in').style.display = 'flex';
                     document.getElementById('signed-in-h2').style.display = 'inline-block';
-					// contract = new web3.eth.Contract(ABI, ADDRESS);
+					contract = new web3.eth.Contract(ABI, ADDRESS);
 
-                    // document.getElementById('nft-balance').textContent = await contract.methods.balanceOf(account).call();
+                    document.getElementById('nft-balance').textContent = await contract.methods.balanceOf(account).call();
 
-                    // document.getElementById('mint').onclick = () => {
-					// 	var mintQty = document.querySelector('.mint-qty').value;
-					// 	var mintPrice = (0.2 * 10 ** 18) * mintQty;
-					// 	console.log(mintPrice);
-                    //     contract.methods.mint(mintQty).send({ from: account, value: mintPrice });
-                    // }
+                    document.getElementById('mint').onclick = () => {
+						// var finalQty = document.querySelector('.final-qty').value;
+						var mintPrice = (0.2 * 10 ** 18) * counter;
+						console.log(mintPrice);
+                        contract.methods.mint(counter).send({ from: account, value: mintPrice });
+                    }
                 }
 				
             })();
 
-			async function signMessage() {
-				signature = await web3.eth.personal.sign(message, account);
-				console.log("Signature: " + signature);
-				document.querySelector('.sign-section').style.display = "none";
-				document.getElementById('thank-you').style.display = "flex";
-				document.getElementById('thank-you').innerHTML = "<p>Thank you for signing up!</p><br><p>See you tomorrow!</p>";
+			document.querySelector(".final-qty").textContent = counter;
+
+			function add() {
+				if(counter<10)
 				counter++;
-				console.log(counter);
+				document.querySelector(".final-qty").textContent = counter;
 			}
+
+			function subtract() {
+				if(counter>0)
+				counter--;
+				document.querySelector(".final-qty").textContent = counter;
+			}
+
+			// async function signMessage() {
+			// 	signature = await web3.eth.personal.sign(message, account);
+			// 	console.log("Signature: " + signature);
+			// 	document.querySelector('.sign-section').style.display = "none";
+			// 	document.getElementById('thank-you').style.display = "flex";
+			// 	document.getElementById('thank-you').innerHTML = "<p>Thank you for signing up!</p><br><p>See you tomorrow!</p>";
+			// 
+			// }
 
         </script>
 
