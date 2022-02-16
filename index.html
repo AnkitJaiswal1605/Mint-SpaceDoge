@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inria+Sans:wght@700&family=Inter&family=Poppins:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+	<script src="https://unpkg.com/moralis/dist/moralis.js"></script>
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 <body>
@@ -31,9 +32,9 @@
                 
                 <h2 id="signed-out-h2">CONNECT TO THE ETHEREUM WALLET <br />(ACCEPTED WALLET: METAMASK) </h2>
                 <h2 id="signed-in-h2">ADDRESS: &nbsp; <span id="wallet-address"></span> 
-					<br />NFT BALANCE: &nbsp; <span id="nft-balance"></span>
+					<!-- <br />NFT BALANCE: &nbsp; <span id="nft-balance"></span> -->
 				</h2>
-				<div class="mint-qty">
+				<!-- <div class="mint-qty">
 					<div class="enter-qty">
 						<span class="add" onClick="subtract()">-</span>
 						<span class="final-qty"></span>
@@ -47,15 +48,15 @@
 					</div>
 					<div class="green-text max-qty"><span class="final-price">0</span>ETH</div>
 				</div> 
-                <button id="mint" class="mint-btn">MINT NFT</button>
-				<a href="https://metamask.app.link/dapp/mint-spacedoge.netlify.app/"><button id="mob-metamask" class="mint-btn">OPEN WITH METAMASK</button></a>
-				<!-- <div class="sign-section">
+                <button id="mint" class="mint-btn">MINT NFT</button> -->
+				<!-- <a href="https://metamask.app.link/dapp/09rdkotnfqfh.usemoralis.com/"><button id="mob-metamask" class="mint-btn">OPEN WITH METAMASK</button></a> -->
+				<div class="sign-section">
 					<button id="sign-up" class="mint-btn" onClick="signMessage()">SIGN UP</button>
 					<br><span class="small-text">(GAS FREE)</span>
 				</div>
-				<a href="https://metamask.app.link/dapp/mint-spacedoge.netlify.app/"><button id="mob-metamask" class="mint-btn">OPEN WITH METAMASK</button></a>
+				<a href="https://metamask.app.link/dapp/09rdkotnfqfh.usemoralis.com/"><button id="mob-metamask" class="mint-btn">OPEN WITH METAMASK</button></a>
 				
-				<div id="thank-you"></div> -->
+				<div id="thank-you"></div>
                 <!-- <h2 class="price"><span class="green-text">PRICE:</span>&nbsp;0.1 ETH (+GAS FEES)</h2> -->
 				<!-- <a href="stake.html"> <button class="mint-btn stake-btn">STAKE NFT</button> </a> -->
             </div>
@@ -64,11 +65,13 @@
         <p class="legal">Legal mentions</p>
 
         <script type="text/javascript">
+
+		Moralis.initialize("ybmDbxvoZxxwkggdyeObBsFGHG2aoKGRnLp4ntVJ"); // Application id from moralis.io
+		Moralis.serverURL = "https://u1c4yedf4dhn.usemoralis.com:2053/server"; //Server url from moralis.io
+
             var account = null;
             var contract = null;
-			var signature = null;
 			var counter = 0;
-			var message = "Sign-up for Space Doge mint."
             const ABI = [
 	{
 		"inputs": [],
@@ -656,54 +659,53 @@
                     account = accounts[0];
                     document.getElementById("wallet-address").textContent = account.substring(0,5) + "..." + account.substring(37,42);
 					
-                    document.querySelector('.signed-out-section').style.display = 'none';
+					document.querySelector('.signed-out-section').style.display = 'none';
                     document.getElementById('signed-out-h2').style.display = 'none';
 					document.getElementById('mob-metamask').style.display = 'none';
-					document.getElementById('mint').style.display = 'inline-block';
-					document.querySelector('.mint-qty').style.display = 'flex';
-					document.querySelector('.total-price').style.display = 'flex';
-					// document.querySelector('.sign-section').style.display = 'flex';
+					// document.getElementById('mint').style.display = 'inline-block';
+					// document.querySelector('.mint-qty').style.display = 'flex';
+					// document.querySelector('.total-price').style.display = 'flex';
+					document.querySelector('.sign-section').style.display = 'flex';
                     document.querySelector('.signed-in-section').style.display = 'flex';
 					document.getElementById('signed-in').style.display = 'flex';
                     document.getElementById('signed-in-h2').style.display = 'inline-block';
-					contract = new web3.eth.Contract(ABI, ADDRESS);
+					// contract = new web3.eth.Contract(ABI, ADDRESS);
 
-                    document.getElementById('nft-balance').textContent = await contract.methods.balanceOf(account).call();
+                    // document.getElementById('nft-balance').textContent = await contract.methods.balanceOf(account).call();
 
-                    document.getElementById('mint').onclick = () => {
-						// var finalQty = document.querySelector('.final-qty').value;
-						var mintPrice = (0.1 * 10 ** 18) * counter;
-						console.log(mintPrice);
-                        contract.methods.mint(counter).send({ from: account, value: mintPrice });
-                    }
+                    // document.getElementById('mint').onclick = () => {
+					// 	// var finalQty = document.querySelector('.final-qty').value;
+					// 	var mintPrice = (0.1 * 10 ** 18) * counter;
+					// 	console.log(mintPrice);
+                    //     contract.methods.mint(counter).send({ from: account, value: mintPrice });
+                    // }
                 }
 				
             })();
 
-			document.querySelector(".final-qty").textContent = counter;
+			// document.querySelector(".final-qty").textContent = counter;
 
-			function add() {
-				if(counter<10)
-				counter++;
-				document.querySelector(".final-qty").textContent = counter;
-				document.querySelector(".final-price").textContent = counter * 1/10;
-			}
-
-			function subtract() {
-				if(counter>0)
-				counter--;
-				document.querySelector(".final-qty").textContent = counter;
-				document.querySelector(".final-price").textContent = counter * 1/10;
-			}
-
-			// async function signMessage() {
-			// 	signature = await web3.eth.personal.sign(message, account);
-			// 	console.log("Signature: " + signature);
-			// 	document.querySelector('.sign-section').style.display = "none";
-			// 	document.getElementById('thank-you').style.display = "flex";
-			// 	document.getElementById('thank-you').innerHTML = "<p>Thank you for signing up!</p><br><p>See you tomorrow!</p>";
-			// 
+			// function add() {
+			// 	if(counter<10)
+			// 	counter++;
+			// 	document.querySelector(".final-qty").textContent = counter;
+			// 	document.querySelector(".final-price").textContent = counter * 1/10;
 			// }
+
+			// function subtract() {
+			// 	if(counter>0)
+			// 	counter--;
+			// 	document.querySelector(".final-qty").textContent = counter;
+			// 	document.querySelector(".final-price").textContent = counter * 1/10;
+			// }
+
+			async function signMessage() {
+				var user = await Moralis.Web3.authenticate( { signingMessage: "Sign-up for Space Doge mint."} );
+				document.querySelector('.sign-section').style.display = "none";
+				document.getElementById('thank-you').style.display = "flex";
+				document.getElementById('thank-you').innerHTML = "<p>Thank you for signing up!</p><br><p>See you tomorrow!</p>";
+			
+			}
 
         </script>
 
